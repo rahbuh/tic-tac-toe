@@ -2,7 +2,7 @@
 
 _A simple tic-tac-toe game built in vanilla JS_
 
-<img src="./readme-images/screenshot.PNG">
+<img src="./readme-images/screenshot.png">
 
 ## Summary
 The classic tic tac toe game.  I built it just for fun.  
