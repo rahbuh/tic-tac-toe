@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tic Tac Toe</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="title" class="banner">
+        <p>Tic Tac Toe</p>
+      </div>
+      <div id="board-container">
+        <div id="board">
+          <div class="square rt-border btm-border" data-square="1">X</div>
+          <div class="square rt-border btm-border" data-square="2">O</div>
+          <div class="square btm-border" data-square="3">X</div>
+          <div class="square rt-border btm-border" data-square="4">O</div>
+          <div class="square rt-border btm-border" data-square="5">X</div>
+          <div class="square btm-border" data-square="6">O</div>
+          <div class="square rt-border" data-square="7">X</div>
+          <div class="square rt-border" data-square="8">O</div>
+          <div class="square" data-square="9">X</div>
+        </div>
+      </div>
+      <div id="controls" class="banner">
+        <div id="select-player">
+          Choose First Player:
+          <input type="radio" name="player-choice" id="X"/>
+          <label for="X">X</label>
+          <input type="radio" name="player-choice" id="O"/>
+          <label for="O">O</label>
+        </div>
+        <div id="game-actions">
+          <p id="message">Choose first player, then click Start.</p>
+          <button id="start-btn">Start</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+:root {
+  --message: #008ae6;
+  --tokens: #ff7f23;
+  --title: #3c5a84;
+  --game-brder: #000;
+  --container-brder: #bfbfbf;
+  --white: #fff;
+  --banner-bkgd: #ddd;
+  --banner-brder: #ddd;
+  --btn: #29a329;
+  --btn-hover: #444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+#container {
+  max-width: 800px;
+  margin: 10px auto;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title p {
+  font-size: 40px;
+  color: var(--title);
+}
+
+#board-container {
+  border: 1px solid var(--container-brder);
+  margin: 10px 0;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 72px;
+  color: var(--tokens);
+}
+
+.rt-border {
+  border-right: 4px solid var(--game-brder);
+}
+
+.btm-border {
+  border-bottom: 4px solid var(--game-brder);
+}
+
+.banner {
+  border: 1px solid var(--banner-brder);
+  background-color: var(--banner-bkgd);
+  height: 100px;
+  text-align: center;
+}
+
+#select-player {
+  font-size: 16px;
+  margin: 8px 0 0;
+}
+
+#select-player input {
+  margin-left: 10px;
+}
+
+#game-actions {
+  margin: 5px 0;
+}
+
+#start-btn {
+  background-color: var(--btn);
+  border: none;
+  border-radius: 4px;
+  width: 80px;
+  font-size: 1rem;
+  color: var(--white);
+  margin: 0 auto;
+  padding: 5px 0;
+}
+
+#start-btn:hover {
+  background-color: var(--btn-hover);
+}
+
+#message {
+  font-size: 16px;
+  color: var(--message);
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 400px) {
+  #container {
+    margin: 20px auto;
+  }
+
+  #title p {
+    font-size: 56px;
+  }
+
+  #board {
+    grid-template-columns: repeat(3, 120px);
+    margin: 10px auto;
+  }
+
+  .square {
+    width: 120px;
+    height: 120px;
+    font-size: 96px;
+  }
+
+  #message {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+}
