@@ -132,14 +132,15 @@
       [scores[0][2], scores[1][1], scores[2][0]]
     ];
 
-    possibleWins.forEach(scoresArr => {
-      const result = scoresArr.reduce((total, num) => {
+    for (const scoresGroup of possibleWins) {
+      const result = scoresGroup.reduce((total, num) => {
         return total + num;
       });
       if (result === win) {
         isWinner = true;
+        break;
       }
-    });
+    }
 
     return isWinner;
   }
@@ -160,7 +161,7 @@
     player = null;
     document.querySelectorAll('[type = "radio"]').forEach(radio => {
       radio.removeAttribute("disabled");
-      radio["checked"] = false;
+      radio.checked = false;
     });
   }
 })();
