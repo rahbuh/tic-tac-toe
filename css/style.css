@@ -1,11 +1,10 @@
 :root {
-  --message: #008ae6;
+  --message: #0000ff;
   --tokens: #ff7f23;
-  --title: #3c5a84;
   --game-brder: #000;
   --container-brder: #bfbfbf;
   --white: #fff;
-  --banner-bkgd: #ddd;
+  --banner-bkgd: #e6e6e6;
   --banner-brder: #ddd;
   --btn: #29a329;
   --btn-hover: #444;
@@ -26,15 +25,8 @@ body {
   margin: 10px auto;
 }
 
-#title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#title p {
-  font-size: 40px;
-  color: var(--title);
+#title h1 {
+  text-align: center;
 }
 
 #board-container {
@@ -55,7 +47,7 @@ body {
   justify-content: center;
   width: 80px;
   height: 80px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, sans-serif;
   font-size: 72px;
   color: var(--tokens);
 }
@@ -71,13 +63,13 @@ body {
 .banner {
   border: 1px solid var(--banner-brder);
   background-color: var(--banner-bkgd);
-  height: 100px;
+  height: 110px;
   text-align: center;
 }
 
 #select-player {
   font-size: 16px;
-  margin: 8px 0 0;
+  margin: 10px 0;
 }
 
 #select-player input {
@@ -107,30 +99,4 @@ body {
   font-size: 16px;
   color: var(--message);
   margin-bottom: 10px;
-}
-
-@media screen and (min-width: 400px) {
-  #container {
-    margin: 20px auto;
-  }
-
-  #title p {
-    font-size: 56px;
-  }
-
-  #board {
-    grid-template-columns: repeat(3, 120px);
-    margin: 10px auto;
-  }
-
-  .square {
-    width: 120px;
-    height: 120px;
-    font-size: 96px;
-  }
-
-  #message {
-    font-size: 20px;
-    margin-bottom: 5px;
-  }
 }

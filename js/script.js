@@ -1,17 +1,22 @@
-(function() {
+(function () {
   const start = document.getElementById("start-btn");
   const firstPlayer = document.getElementById("select-player");
   const board = document.getElementById("board");
 
   let player = null;
   let gameOn = false;
-  const scores = [
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0]
-  ];
+  const scores = {
+    rowOne: 1,
+    rowTwo: 1,
+    rowThree: 1,
+    columnOne: 1,
+    columnTwo: 1,
+    columnThree: 1,
+    diagonalOne: 1,
+    diagonalTwo: 1,
+  };
 
-  firstPlayer.addEventListener("change", e => {
+  firstPlayer.addEventListener("change", (e) => {
     player = e.target.id;
   });
 
@@ -27,23 +32,21 @@
 
   function clearSquares() {
     const squares = document.getElementsByClassName("square");
-    for (const square of squares) {
+    for (let square of squares) {
       square.innerText = "";
     }
   }
 
   function resetScores() {
-    scores.forEach(score => {
-      score[0] = 0;
-      score[1] = 0;
-      score[2] = 0;
+    Object.keys(scores).forEach((key) => {
+      scores[key] = 0;
     });
   }
 
   function disablePlayerSelect() {
     document
       .querySelectorAll('[type = "radio"]')
-      .forEach(radio => radio.setAttribute("disabled", true));
+      .forEach((radio) => radio.setAttribute("disabled", true));
   }
 
   function displayMessage(msg) {
@@ -56,7 +59,7 @@
     }
   }
 
-  board.addEventListener("click", e => {
+  board.addEventListener("click", (e) => {
     if (gameOn) {
       const isEmptySquare = e.target.innerText === "";
       const squareNum = e.target.dataset.square;
@@ -85,31 +88,46 @@
 
     switch (square) {
       case "1":
-        scores[0][0] = value;
+        scores.rowOne += value;
+        scores.columnOne += value;
+        scores.diagonalOne += value;
         break;
       case "2":
-        scores[0][1] = value;
+        scores.rowOne += value;
+        scores.columnTwo += value;
         break;
       case "3":
-        scores[0][2] = value;
+        scores.rowOne += value;
+        scores.columnThree += value;
+        scores.diagonalTwo += value;
         break;
       case "4":
-        scores[1][0] = value;
+        scores.rowTwo += value;
+        scores.columnOne += value;
         break;
       case "5":
-        scores[1][1] = value;
+        scores.rowTwo += value;
+        scores.columnTwo += value;
+        scores.diagonalOne += value;
+        scores.diagonalTwo += value;
         break;
       case "6":
-        scores[1][2] = value;
+        scores.rowTwo += value;
+        scores.columnThree += value;
         break;
       case "7":
-        scores[2][0] = value;
+        scores.rowThree += value;
+        scores.columnOne += value;
+        scores.diagonalTwo += value;
         break;
       case "8":
-        scores[2][1] = value;
+        scores.rowThree += value;
+        scores.columnTwo += value;
         break;
       case "9":
-        scores[2][2] = value;
+        scores.rowThree += value;
+        scores.columnThree += value;
+        scores.diagonalOne += value;
         break;
       default:
         break;
@@ -118,37 +136,15 @@
 
   function isPlayerWinner() {
     let win;
-    let isWinner = false;
     player === "X" ? (win = 3) : (win = -3);
 
-    const possibleWins = [
-      [...scores[0]],
-      [...scores[1]],
-      [...scores[2]],
-      [scores[0][0], scores[1][0], scores[2][0]],
-      [scores[0][1], scores[1][1], scores[2][1]],
-      [scores[0][2], scores[1][2], scores[2][2]],
-      [scores[0][0], scores[1][1], scores[2][2]],
-      [scores[0][2], scores[1][1], scores[2][0]]
-    ];
-
-    for (const scoresGroup of possibleWins) {
-      const result = scoresGroup.reduce((total, num) => {
-        return total + num;
-      });
-      if (result === win) {
-        isWinner = true;
-        break;
-      }
-    }
-
-    return isWinner;
+    return Object.values(scores).includes(win);
   }
 
   function openSquares() {
     const squares = document.getElementsByClassName("square");
 
-    for (const square of squares) {
+    for (let square of squares) {
       if (square.innerText === "") {
         return true;
       }
@@ -159,7 +155,7 @@
   function endGame() {
     gameOn = false;
     player = null;
-    document.querySelectorAll('[type = "radio"]').forEach(radio => {
+    document.querySelectorAll('[type = "radio"]').forEach((radio) => {
       radio.removeAttribute("disabled");
       radio.checked = false;
     });
