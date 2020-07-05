@@ -6,14 +6,14 @@
   let player = null;
   let gameOn = false;
   const scores = {
-    rowOne: 1,
-    rowTwo: 1,
-    rowThree: 1,
-    columnOne: 1,
-    columnTwo: 1,
-    columnThree: 1,
-    diagonalOne: 1,
-    diagonalTwo: 1,
+    rowOne: 0,
+    rowTwo: 0,
+    rowThree: 0,
+    columnOne: 0,
+    columnTwo: 0,
+    columnThree: 0,
+    diagonalOne: 0,
+    diagonalTwo: 0,
   };
 
   firstPlayer.addEventListener("change", (e) => {
@@ -54,9 +54,7 @@
   }
 
   function startGame() {
-    if (!gameOn) {
-      gameOn = true;
-    }
+    !gameOn && (gameOn = !gameOn);
   }
 
   board.addEventListener("click", (e) => {
